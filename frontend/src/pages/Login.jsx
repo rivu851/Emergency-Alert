@@ -37,7 +37,7 @@ function Login() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:5000/api/users/login",
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/login`,
         loginInfo,
         {
           headers: { "Content-Type": "application/json" },
@@ -45,6 +45,7 @@ function Login() {
           timeout: 5000,
         }
       );
+
       const { token, user } = response.data;
 
       if (!token || !user) {

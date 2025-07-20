@@ -34,9 +34,14 @@ function Signup() {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:5000/api/users/register", signupInfo, {
-        headers: { "Content-Type": "application/json" },
-      });
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/register`,
+        signupInfo,
+        {
+          headers: { "Content-Type": "application/json" },
+          // withCredentials: true, // Enable if backend uses cookies
+        }
+      );
       toast.success("Signup successful! Redirecting to login...");
       setTimeout(() => navigate("/login"), 2000);
     } catch (error) {
