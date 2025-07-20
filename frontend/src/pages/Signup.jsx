@@ -35,7 +35,7 @@ function Signup() {
     try {
       setLoading(true);
       await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/users/register`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/signup`,
         signupInfo,
         {
           headers: { "Content-Type": "application/json" },
